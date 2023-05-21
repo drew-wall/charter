@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import getCustomerPurchases from './apis/get_customer_purchases';
-import logo from './logo.svg';
 import './App.css';
 import calculateRewardPoints from './utils/calculate_reward_points';
 import getMonthDiff from './utils/get_month_diff';
@@ -49,29 +48,61 @@ function App() {
     a.customerId - b.customerId || new Date(a.purchaseDate) - new Date(b.purchaseDate)
   )
 
-  console.log(purchAwards)
-
   const awardsSummary = []
+  const getSummary = () => {
+    let custId 
+    let custAmt = 0
+    let custRewards = 0
+    let monthAmt = 0
+    let monthRewards = 0
+    let purchMonth;
+    for (let i = 0; i < purchAwards.length; i++) {
+      let { customerId, purchaseAmount, purchaseDate, rewards } = purchAwards[i]
+      let purchaseMonth = purchaseDate.substr(0, 7)
+      let { customerId: prevCustomerId, purchaseDate: prevPurchaseDate } = purchAwards[i-1] || {}
+      let prevPurchaseMonth = (prevPurchaseDate || '').substr(0, 7)
 
-  for (let i = 0; i < purchAwards.length; i++) {
-
+      if (prevCustomerId && customerId !== prevCustomerId) {
+        awardsSummary.push({ customerId: prevCustomerId, purchaseAmount: monthAmt, purchaseDate: prevPurchaseMonth, rewards: monthRewards})
+        awardsSummary.push({ customerId: prevCustomerId, purchaseAmount: custAmt, purchaseDate: 'Customer Totals:', rewards: custRewards })
+        custAmt = 0
+        custRewards = 0
+        monthAmt = 0
+        monthRewards = 0    
+      }
+      else if (prevPurchaseMonth && prevPurchaseMonth !== purchaseMonth) {
+        awardsSummary.push({ customerId: prevCustomerId, purchaseAmount: monthAmt, purchaseDate: prevPurchaseMonth, rewards: monthRewards})
+        monthAmt = 0
+        monthRewards = 0
+      }
+      custAmt += purchaseAmount
+      custRewards += rewards
+      monthAmt += purchaseAmount
+      monthRewards += rewards
+      custId = customerId
+      purchMonth = purchaseMonth
+    }
+    awardsSummary.push({ customerId: custId, purchaseAmount: monthAmt, purchaseDate: purchMonth, rewards: monthRewards})
+    awardsSummary.push({ customerId: custId, purchaseAmount: custAmt, purchaseDate: 'Customer Totals:', rewards: custRewards })
   }
+
+  getSummary()
 
   return (
     <>
-      <div>Charter Home Assignment</div>
+      <div>Charter Home Assignment - Andrew Wall</div>
       <table>
         <tr>
           <th>Customer Id</th>
-          <th>Purchase Amount</th>
           <th>Purchase Date</th>
+          <th>Purchase Amount</th>
           <th>Reward Points</th>
         </tr>
-        {purchAwards.map(item =>
+        {awardsSummary.map(item =>
           <tr>
             <td>{item.customerId}</td>
-            <td>{item.purchaseAmount}</td>
             <td>{item.purchaseDate}</td>
+            <td>{item.purchaseAmount}</td>
             <td>{item.rewards}</td>
           </tr>
         )}

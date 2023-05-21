@@ -7,4 +7,4 @@ const getMonthDiff = purchaseDate => {
     return mnthDiff + yearDiff * 12
 }
 
-  export default getMonthDiff
+export default getMonthDiff
