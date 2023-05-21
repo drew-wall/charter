@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 From command line: \
 git clone https://github.com/drew-wall/charter.git \
 cd charter \
-npm install \
+npm install
 
 
 ## Available Scripts
