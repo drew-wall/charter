@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install repo
+
+From command line:
+git clone https://github.com/drew-wall/charter.git
+cd charter
+npm install
+
+
 ## Available Scripts
 
 In the project directory, you can run:
