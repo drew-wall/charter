@@ -4,10 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install repo
 
-From command line:
-git clone https://github.com/drew-wall/charter.git
-cd charter
-npm install
+From command line: \
+git clone https://github.com/drew-wall/charter.git \
+cd charter \
+npm install \
 
 
 ## Available Scripts
