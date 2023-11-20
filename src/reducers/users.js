@@ -1,9 +1,9 @@
 import * as actions from '../actions/usertypes'
 
 const initialState = {
-    users: [],
-    loading: false,
-    error: ''
+  users: [],
+  loading: false,
+  error: ''
 }
 
 function usersReducer(state = initialState, action) {

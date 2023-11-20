@@ -1,10 +1,10 @@
 import * as actions from '../actions/joketypes'
 
 const initialState = {
-    joke: '',
-    punchline: '',
-    loading: false,
-    error: ''
+  joke: '',
+  punchline: '',
+  loading: false,
+  error: ''
 }
 
 function jokeReducer(state = initialState, action) {
@@ -16,10 +16,11 @@ function jokeReducer(state = initialState, action) {
       }
     }
     case actions.GET_JOKE_SUCCESS: {
+      const { setup: joke, punchline } = action.data
       return {
         ...state,
-          joke: action.data.setup,
-          punchline: action.data.punchline,
+          joke,
+          punchline,
           loading: false,
           error: '',
       }

@@ -14,8 +14,9 @@ import  App from './App';
 
 const sagaMiddleware = createSagaMiddleware()
 const rootReducer = combineReducers(
-  { joke: jokeReducer,
-    users: usersReducer 
+  { 
+    joke: jokeReducer,
+    users: usersReducer,
   })
 const store = createStore(
   rootReducer,

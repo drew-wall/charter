@@ -14,9 +14,8 @@ function Users() {
   return (
     <>
       <h2>Users</h2>
-      {loading ? <div>loading...</div> : <div>...</div>}
+      {loading ? <div>loading...</div> : <div></div>}
       {error && <div>{error}</div>}
-      {/* <button onClick={() => dispatch(getUsers())}>Get Users</button> */}
       {users.length > 0 &&
           <ul>
             {users.map(user =>

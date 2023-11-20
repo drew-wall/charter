@@ -1,8 +1,8 @@
-const removeDups = arr => [... new Set(arr)]
+const removeDups = arr => [...new Set(arr)]
 
 console.log(removeDups([1,22,3,3,1]))
 
-console.log(Math.max(... [1,2,3,4]))
+console.log(Math.max(...[1,2,3,4]))
 
 const setToDB = (arr, iter) => {
   return new Promise((resolve, reject) => {

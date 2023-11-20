@@ -83,7 +83,7 @@ export default function CountryCapitalGame() {
           key={option}
           value={option}
           onClick={handleClick}
-          sx={{ marginLeft: 1 }}
+          sx={{ ml: 1 }}
           color={getColor(option)}
           variant={getVariant(option)}>
           {option}
