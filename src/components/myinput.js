@@ -20,10 +20,10 @@ const Myinput = () => {
   console.log('Myinput rendered')
   return (
     <>
-    <h2>Debounce example</h2>
+    <Typography sx={{ mt: 3 }}variant="h4">Debounce example</Typography>
       <Box sx={{ my: 2 }}>
         <Input placeholder="Enter some text" name="myinput" type="text" onChange={handleChange}/>
-       <Typography variant="h4">{debounceValue}</Typography>
+       <Typography variant="h5">{debounceValue}</Typography>
       </Box>
     </>
   )

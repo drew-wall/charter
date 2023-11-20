@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUsers } from '../actions/users'
 
@@ -14,7 +14,7 @@ function Users() {
   return (
     <>
       <h2>Users</h2>
-      {loading ? <div>loading...</div> : <div></div>}
+      {loading && <div>loading...</div>}
       {error && <div>{error}</div>}
       {users.length > 0 &&
           <ul>

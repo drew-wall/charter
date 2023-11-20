@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
+import { Typography } from "@mui/material";
 
-const Hello = () => {
-  const imageNameList = useMemo(() => [
-    "akita",
-    "germanshepherd",
-    "dalmatian",
-    "husky",
-    "labrador"
-  ], []);
 
+const imageNameList = [
+  "akita",
+  "germanshepherd",
+  "dalmatian",
+  "husky",
+  "labrador"
+]
+
+const DogImages = () => {
+ 
   const [image, setImage] = useState('');
   const [pos, setPos] = useState(0);
 
@@ -19,7 +22,7 @@ const Hello = () => {
       .then(response => response.json())
       .catch(err => { console.log(err) })
       .then(setImage)
-  }, [pos, imageNameList]);
+  }, [pos]);
 
   const isFirst = () => pos === 0
   const isLast = () => pos === imageNameList.length - 1
@@ -37,7 +40,8 @@ const Hello = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{ mt: 2 }}>
+      <Typography variant="h4">Dog Images</Typography>
       <div>
         <img src={image && image.message} height={350} width={450} alt={imageNameList[pos]} />
       </div>
@@ -48,4 +52,4 @@ const Hello = () => {
   );
 };
 
-export default Hello;
+export default DogImages;

@@ -77,7 +77,7 @@ export default function CountryCapitalGame() {
 
   return (
     <>
-      <Typography variant="h5" mb={1}>Country Capital Game</Typography>
+      <Typography variant="h4" mb={1}>Country Capital Game</Typography>
       {options.map(option =>
         <Button
           key={option}

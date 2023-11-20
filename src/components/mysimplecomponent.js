@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 const MySimpleComponent = () => {
@@ -11,9 +12,9 @@ const MySimpleComponent = () => {
 
   console.log('simple component rendered')
   return (
-    <h1>
+    <Typography variant="h4" sx={{ my: 2 }}>
       {data && data.message}
-    </h1>
+    </Typography>
   )
 }
 
