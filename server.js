@@ -1,13 +1,5 @@
 const express = require('express')
 const cors = require('cors');
-const mongoose = require('mongoose')
-
-
-mongoose.connect(
-    'mongodb+srv://chelandrew94:Stangs13!@awall.pftmror.mongodb.net/?retryWrites=true&w=majority'
-)
-.then((resp) => {console.log('connected to mongodb', resp.connections)})
-.catch(() => {console.log('failed to connect to mongodb')})
 
 
 const PORT = 3001
