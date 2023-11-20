@@ -9,6 +9,9 @@ git clone https://github.com/drew-wall/charter.git \
 cd charter \
 npm install
 
+## Solutions to various js code challenges from codewars
+
+src/jschallenges.js
 
 ## Available Scripts
 
