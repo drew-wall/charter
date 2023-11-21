@@ -28,18 +28,15 @@ const processArray = async (arrsize = 105, numitems = 25) => {
 processArray(1010, 50)
 
 
-const truncateWords = (str, numwords) => 
-  str.split(' ').slice(0, numwords).join(' ')
+const truncateWords = (str, numwords) => str.split(' ').slice(0, numwords).join(' ')
 console.log(truncateWords('This is an example of truncating number of words', 7))
 
 
-const reverseString = str =>
-   str.split('').reverse().join('')
+const reverseString = str => str.split('').reverse().join('')
  console.log(reverseString('This is a string to be reversed'))
  
  
-const numInStr = array =>
-   array.filter(value => /[0-9]/.test(value))
+const numInStr = array => array.filter(value => /[0-9]/.test(value))
 console.log(numInStr(['abc', 'fgj9', '1', 'c39d', 'gggg']))
  
 
@@ -175,7 +172,7 @@ console.log(expandedForm(70304))
  console.log(rgb(148, 0, 211))
  
 
-function toCamelCase(str){
+function toCamelCase(str) {
    return str.replaceAll('_', '-').split('-').map((x, i) => 
      i === 0 ? x : `${x[0].toUpperCase()}${x.substring(1)}`
    )
