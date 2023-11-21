@@ -1,8 +1,6 @@
 const removeDups = arr => [...new Set(arr)]
+console.log(removeDups([1,2,2,3,3,1]))
 
-console.log(removeDups([1,22,3,3,1]))
-
-console.log(Math.max(...[1,2,3,4]))
 
 const setToDB = (arr, iter) => {
   return new Promise((resolve, reject) => {
@@ -10,6 +8,7 @@ const setToDB = (arr, iter) => {
   })
 }
 
+// Partition array into chunks to be updated by setToDB
 const processArray = async (arrsize = 105, numitems = 25) => {
   const arr = Array(arrsize).fill(1)
   const numloops = Math.ceil(arr.length / numitems)
@@ -23,27 +22,24 @@ const processArray = async (arrsize = 105, numitems = 25) => {
     catch (e) {}
   }
 }
-
 processArray(1010, 50)
+
 
 const truncateWords = (str, numwords) => 
   str.split(' ').slice(0, numwords).join(' ')
+console.log(truncateWords('This is an example of truncating number of words', 7))
 
-
-console.log(truncateWords('This is an example of truncating number of words', 12))
 
 const reverseString = str =>
    str.split('').reverse().join('')
-   
  console.log(reverseString('This is a string to be reversed'))
  
  
 const numInStr = array =>
    array.filter(value => /[0-9]/.test(value))
-   
- console.log(numInStr(['abc', 'fgj9', '1', 'c39d', 'gggg']))
+console.log(numInStr(['abc', 'fgj9', '1', 'c39d', 'gggg']))
  
- 
+
  const stringChop = (str, size) => {
    if (!size) {
      return [str]
@@ -52,97 +48,90 @@ const numInStr = array =>
    const array = []
    for (let i = 0; i < numchunks; i++) {
      array.push(str.slice(i * size, i * size + size))
-   }
-   
+   }   
    return array
  }
- 
  console.log(stringChop('JavaScript', 3))
  
+
  const missingLetter = (array = ['a','b','c','d','f']) => {
- 
    let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n',
-   'o','p','q','r','s','t','u','v','w','x','y','z']
-   
+   'o','p','q','r','s','t','u','v','w','x','y','z']  
    if (array[0] === array[0].toUpperCase()) { 
      alphabet = alphabet.map(x => x.toUpperCase())
    }
- 
    const startidx = alphabet.indexOf(array[0])
    const subalpha = alphabet.slice(startidx, startidx + array.length)
    const missing = subalpha.find(x => !array.includes(x))
-   return (missing || 'no missing letters')
-   
+   return (missing || 'no missing letters') 
  }
  console.log(missingLetter(['a', 'b', 'd']))
  
- function findMissingLetter(array) {
+
+function findMissingLetter(array) {
   let first = array[0].charCodeAt(0)
   for (let i = 1; i < array.length; i++) {
     if (first + i !== array[i].charCodeAt(0)) {
       return String.fromCharCode(first + i)
     }
   }
-  throw new Error("Invalid input")
- }
- 
- console.log(findMissingLetter([ '0', '9', '7']))
- 
-const createPhoneNumber = numbers =>
-   `(${numbers.slice(0,3)}) ${numbers.slice(3, 6)}-${numbers.slice(6,10)}`.replaceAll(',', '')
- console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
- 
-const accum = s => {
- 
- let ret = ''
- for ( let i = 0; i < s.length; i++) {
-   ret += `${s[i].toUpperCase()}${s[i].repeat(i).toLowerCase()}-`
- }
- return ret.substr(0, ret.length-1)
 }
+console.log(findMissingLetter([ '0', '9', '7']))
+ 
 
+const createPhoneNumber = numbers =>
+  `(${numbers.slice(0,3)}) ${numbers.slice(3, 6)}-${numbers.slice(6,10)}`.replaceAll(',', '')
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+ 
+const accum = s => { 
+  let ret = ''
+  for ( let i = 0; i < s.length; i++) {
+    ret += `${s[i].toUpperCase()}${s[i].repeat(i).toLowerCase()}-`
+  }
+  return ret.slice(0, ret.length-1)
+}
 console.log(accum("ZpglnRxqenU"))
 
+
 const findOutlier = integers => {
-  const even = integers.filter(x => x % 2 === 0)
-  
+  const even = integers.filter(x => x % 2 === 0) 
   if (even.length === 1) {
     return even[0]
   }
   const odd = integers.filter(x => x % 2)
   return odd[0]
 }
-
 console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36] ))
 
  
-function XO(str) {
-   const x = str.match(/x/gi) || []
-   const o = str.match(/o/gi) || []
-   return x.length === o.length
- }
- 
- console.log(XO('xxxkkkkoO'))
- 
+function xo(str) {
+  const x = str.match(/x/gi) || []
+  const o = str.match(/o/gi) || []
+  return x.length === o.length
+}
+ console.log(xo('xxxkkkkoO'))
+
+
  function count(string) {
    const res = [...string].reduce((acc, val) => {
-      if (acc[val]) acc[val] += 1
-      else acc[val] = 1
-      return acc    
+     if (acc[val]) acc[val] += 1
+     else acc[val] = 1
+     return acc    
    }, {})
    return res
  }
  console.log(count(''))
  
+
  function isValidWalk(walk) {
   if (walk.length !== 10) return false
   const res = walk.reduce((acc, val) => {
-     acc[val] += 1
-     return acc
+    acc[val] += 1
+    return acc
   }, {n: 0, s: 0, w: 0, e: 0})
   return (res.n === res.s && res.w === res.e) 
  }
- 
  console.log(isValidWalk(['n','n','n','n','n','s','s','s','s','s']))
  
  
@@ -160,7 +149,6 @@ function high(x){
   })
   return word
 }
-
 console.log(high('this is a test of words sdrow'))
 
 
@@ -170,9 +158,9 @@ function expandedForm(num) {
   ).filter(x => x)  
    .join(' + ')
 }
+console.log(expandedForm(70304))
 
- console.log(expandedForm(70304))
- 
+
  function rgb(r, g, b) {
    const pad = n => {
      n = n > 255 ? 255 : n < 0 ? 0 : n
@@ -183,21 +171,21 @@ function expandedForm(num) {
  }
  console.log(rgb(148, 0, 211))
  
+
 function toCamelCase(str){
    return str.replaceAll('_', '-').split('-').map((x, i) => 
      i === 0 ? x : `${x[0].toUpperCase()}${x.substring(1)}`
    )
    .join('')
 }
-
 console.log(toCamelCase('the_stealth-warrior'))
 
-// complete the function
+
 function solution(string) {
   return string.replace(/([A-Z])/g, ' $1')
 }
-
 console.log(solution('camelasecamel'))
+
 
 function generateHashtag (str) {
   const res = str.split(' ').filter(x => x).map(x =>
@@ -207,6 +195,7 @@ function generateHashtag (str) {
   return res.length >= 140 || !res.length ? false : `#${res}`
 }
 console.log(generateHashtag(' take  me out to the   ballgame'))
+
 
 function incrementString (strng) {
   const parsed = strng.match(/([\w-]*[^\d]+)(\d*)$/)
@@ -225,7 +214,7 @@ console.log(incrementString('fo99obar99'))
 console.log(incrementString('foo1'))
 console.log(incrementString('foo002'))
 console.log(incrementString('009'))
-//console.log(parseInt('0007', 10))
+
 
 function nextBigger(n){
   const num = n.toString()
@@ -277,7 +266,4 @@ function nextBigger(n){
   } while(permute(target)); 
   return permutations || -1
 }
-
- console.log(nextBigger(919))
-
-console.log(Math.floor(65) % 60)
+console.log(nextBigger(919))
