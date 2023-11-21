@@ -9,7 +9,7 @@ git clone https://github.com/drew-wall/charter.git \
 cd charter \
 npm install
 
-## If you want run the test express server - just returns "test worked" mwessage
+## If you want run the test express server - just returns "test worked" message
 
   node server
 
