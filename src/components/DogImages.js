@@ -13,7 +13,6 @@ const imageNameList = [
 ]
 
 const DogImages = () => {
- 
   const [image, setImage] = useState('');
   const [pos, setPos] = useState(0);
 

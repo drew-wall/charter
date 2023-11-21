@@ -15,8 +15,6 @@ const countries = data.map(d => d.country)
 const capitals = data.map(d => d.capital)
 
 export default function CountryCapitalGame() {
-  
-
   const [options, setOptions] = useState([...countries, ...capitals])
   const [selected, setSelected] = useState([])
   const [matched, setMatched] = useState(null)
