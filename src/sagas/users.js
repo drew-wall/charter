@@ -1,18 +1,19 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import * as types from '../actions/usertypes'
+import { GET_USERS } from '../actions/usertypes'
+import * as actions from '../actions/users'
 import getUsers from '../apis/users'
 
 
 export function* fetchUsers() {
   const { data, error } = yield call(getUsers)
   if (data) {
-    yield put({ type: types.GET_USERS_SUCCESS, data })
+    yield put(actions.getUsersSuccess(data))
   }
   else {
-    yield put({ type: types.GET_USERS_FAILED, error })
+    yield put(actions.getUsersFailed(error))
   }
 }
 
 export function* watchForUsers() {
-  yield takeLatest(types.GET_USERS, fetchUsers)
+  yield takeLatest(GET_USERS, fetchUsers)
 }

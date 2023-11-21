@@ -1,18 +1,19 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import * as types from '../actions/joketypes'
+import { GET_JOKE } from '../actions/joketypes'
+import * as actions from '../actions/joke'
 import getJoke from '../apis/joke'
 
 
 export function* fetchJoke() {
   const { data, error } = yield call(getJoke)
   if (data) {
-    yield put({ type: types.GET_JOKE_SUCCESS, data })
+    yield put(actions.getJokeSuccess(data))
   }
   else {
-    yield put({ type: types.GET_JOKE_FAILED, error })
+    yield put(actions.getJokeFailed(error))
   }
 }
 
 export function* watchForJoke() {
-  yield takeLatest(types.GET_JOKE, fetchJoke)
+  yield takeLatest(GET_JOKE, fetchJoke)
 }
