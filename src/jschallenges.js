@@ -1,6 +1,10 @@
 const removeDups = arr => [...new Set(arr)]
 console.log(removeDups([1,2,2,3,3,1]))
 
+const sum = numarray =>
+  numarray.reduce((acc,num) => acc + num)
+console.log(sum([1,2,3,4,20]))
+
 
 const setToDB = (arr, iter) => {
   return new Promise((resolve, reject) => {
