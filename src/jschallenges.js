@@ -267,3 +267,262 @@ function nextBigger(n){
   return permutations || -1
 }
 console.log(nextBigger(919))
+
+function sumStrings(a,b) { 
+  return (Number.BigInt(a) + Number.BigInt(b)).toString()
+}
+
+console.log(sumStrings('712569312664357328695151392', '8100824045303269669937'))
+ 
+const multipleof3Regex = parseInt(new RegExp('[0-1]'), 10)
+console.log(multipleof3Regex.test(' abc '))
+
+function mix(s1, s2) {
+  const lower = new RegExp('[a-z]')
+  
+  const getCounts = str => {
+    const cnts = [...str].reduce((acc, val) => {
+      if (lower.test(val)) {
+        if (acc[val]) acc[val] += 1
+        else acc[val] = 1
+      }
+      return acc
+    }, {})
+    return cnts
+  }
+ 
+  const s1s = getCounts(s1)
+  const s2s = getCounts(s2)
+ 
+  let array = []
+  for (const [key,value] of Object.entries(s1s)) {
+    array.push({ [key]: value, str: '1:', id: key })
+  }
+
+  for (const [key,value] of Object.entries(s2s)) {
+    if (key in s1s) {
+      const idx = array.findIndex(x => x.id === key)
+      const item = array[idx]
+      const str = value > item[key] ? '2:' : value === item[key] ? '=:' : '1:'
+      const max = Math.max(value,item[key])
+      array.splice(idx, 1, { [key]: max, str, id: key })
+    }
+    else {
+      array.push({ [key]: value, str: '2:', id: key })
+    }
+  }
+
+  const res = array.filter(x => x[x.id] > 1)
+               .sort((a, b) => {
+                  return b[b.id] - a[a.id] || 
+                   `${a.str.replace('=:', '3:')}${a.id}`.
+                    localeCompare(`${b.str.replace('=:', '3:')}${b.id}}`)
+                 })
+  let output = ''
+  res.forEach(x => {
+    output += `${x.str}${x.id.repeat(x[x.id])}/`
+  })
+
+  return output.slice(0, output.length - 1)
+}
+  
+console.log(mix('my&friend&Paul has heavy hats! &', 'my friend John has many many friends &'))
+
+
+function stripText(input, markers) {
+  const getSliceEnd = s => {
+     let idx = s.length
+     for (const m of markers) {
+       if (s.indexOf(m) > -1) {
+         idx = s.indexOf(m)
+         break
+       }
+     }
+     return idx
+   }
+   return input.split('\n').map(x => x.slice(0, getSliceEnd(x)).trim()).join('\n')
+}
+
+console.log(stripText("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
+
+
+function parseStr(string) {
+  const conv = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+    ten: 10,
+    eleven: 11,
+    twelve: 12,
+    thirteen: 13,
+    fourteen: 14,
+    fifteen: 15,
+    sixteen: 16,
+    seventeen: 17,
+    eighteen: 18,
+    nineteen: 19,
+    twenty: 20,
+    thirty: 30,
+    forty: 40,
+    fifty: 50,
+    sixty: 60,
+    seventy: 70,
+    eighty: 80,
+    ninety: 90,
+    hundred: 100,
+    thousand: 1000,
+    million: 1000000
+  }
+  return string.split(' ').filter(x => x !== 'and')
+    .map(x => {
+      const [f, s] = x.split('-')
+      return conv[f] + (conv[s] || 0)
+    })
+    .reduce((acc, x, idx, arr) => {
+      console.log(x)
+      if (/100|1000|1000000/.test(x)) {
+        acc += x * arr[idx-1]
+        acc -= arr[idx-1]
+        return acc
+      }
+      return acc += x
+    }, 0)
+}
+
+console.log(parseStr('two hundred forty-four'))
+
+
+function hangman(hangmanString) {
+  return [...hangmanString].map((c, idx)  => idx % 2 ? c : '_' ).join('')
+}
+
+console.log(hangman('JS is fancy'))
+
+ 
+function circularRepeat(s, n) {
+  return s.repeat(n).slice(0, 100)
+}
+
+console.log(circularRepeat('xyz', 10))
+
+function getPrice(item) {
+  return item.slice(item.indexOf('(')).replace(/\(|\)/g,'')
+}
+
+console.log(getPrice('ice ($4.50)'))
+
+const average = (...args) => args.reduce((acc, val) => acc + val, 0) / args.length
+
+console.log(average(0, 1, 2, -1, 9, 10)) // 3.5
+
+function cinemaQueue(max, visitors) {
+  const x = visitors.filter(v => v === 'X')
+  return x.length === max ? 'full' : x.length > max ? `too much: ${x.length - max}`
+   : `not full: ${max - x.length}`
+}
+console.log(cinemaQueue(4, ['X','O','X']))
+
+function lastButNotLeast(a, b, c) {
+   const a1 = a.toString().slice(-1)
+   const b1 = b.toString().slice(-1)
+   const c1 = c.toString().slice(-1)
+   return a1 === b1 || a1 === c1 || b1 === c1
+}
+
+console.log(lastButNotLeast(1, 21, 51))
+
+ 
+/* Given are two strings password and password_repeat. Check if the password is secure by the following critera:
+- both passwords must match
+- password must be at least 8 chars
+- contains at least a number
+- contains at lease an uppercase letter
+- contains at least a lowercase letter
+- contains at least one of these special chars (&$%§-_) */
+
+function checkPassword(password, password_repeat) {
+  if (password !== password_repeat) return false
+  if (password.length < 8) return false
+  if (!/[0-9]/g.test(password)) return false
+  if (!/[A-Z]|[a-z]/g.test(password)) return false
+  if (!/\(|&|\$|%|§|-|_|\)/g.test(password)) return false
+  
+  return true
+}
+ console.log(checkPassword('0&J&xxQYmD§kx§k$AO', '0&J&xxQYmD§kx§k$AO'))
+ 
+ 
+ function solveTicTacToe(line1, line2, line3) {
+  let l1 = [...line1].join('')
+  let l2 = [...line2].join('')
+  let l3 = [...line3].join('')
+  let l4 = `${l1.slice(0,1)}${l2.slice(0,1)}${l3.slice(0,1)}`
+  let l5 = `${l1.slice(1,2)}${l2.slice(1,2)}${l3.slice(1,2)}`
+  let l6 = `${l1.slice(2,3)}${l2.slice(2,3)}${l3.slice(2,3)}`
+  let l7 = `${l1.slice(0,1)}${l2.slice(1,2)}${l3.slice(2,3)}`
+  let l8 = `${l1.slice(2,3)}${l2.slice(1,2)}${l3.slice(0,1)}`
+  const res = `${l1}|${l2}|${l3}|${l4}|${l5}|${l6}|${l7}|${l8}`
+  if(res.includes('XXX') || res.includes('OOO')) return true
+  return 'Tie'
+ }
+ 
+ console.log(solveTicTacToe(['-O-'], ['-OX'], ['-O-']))
+ 
+ function headline2(greeting) {
+  const p = document.createElement('p')
+  p.innerHTML = greeting
+  let color = 'black'
+  if (greeting.includes('Hi') && greeting.includes('Hello')) {
+    color = 'red'
+  }
+  else if (greeting.includes('Hi')) {
+    color = 'green'
+  }
+  else if (greeting.includes('Hello')) {
+    color = 'blue'
+  }
+  p.style.color = color
+  document.body.append(p)
+  console.log(p)
+ }
+ 
+ headline2('Hi Hello')
+ 
+ 
+function littleChild(child1, child2) {
+  const inRange = num => num > -1 && num < 15
+  
+  if ((inRange(child1)  && inRange(child2)) ||
+      (!inRange(child1)  && !inRange(child2))) {
+       return false
+  }
+  if (inRange(child1) || inRange(child2)) {
+    return true
+  }
+  return false
+ }
+ 
+ console.log(littleChild(-5,-11))
+ 
+ 
+ /* Given is a String string and a number n. Return a string with the section from 0 to n in a row. In each run n is to be decremented. */
+ 
+ // 'JSCodeJSCodJSCoJSCJSJ'
+ 
+ function repeater(string, n) {
+  let str = ''
+  for (let i = n; i > 0; i--) {
+    str += string.slice(0, i)
+  }
+  return str
+}
+
+console.log(repeater('Foobar', 2))
+
