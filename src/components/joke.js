@@ -14,7 +14,7 @@ function Joke() {
   console.log('Joke rendered')
   return (
     <>
-    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%', border: 'solid blue 2px', p: 3, ml: 3 }}>
+    <Box sx={{ mt: 5, display: 'flex', flexDirection: 'column', width: '50%', border: 'solid blue 2px', p: 3, ml: 3 }}>
       <Button variant="contained" onClick={() => {dispatch(getJoke()); setShowPl(false)}}>Get a Joke</Button>
       <Box sx={{ display: 'flex', height: '50%' }}>
         {loading ? <CircularProgress /> : 

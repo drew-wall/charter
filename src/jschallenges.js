@@ -197,7 +197,7 @@ function generateHashtag (str) {
 console.log(generateHashtag(' take  me out to the   ballgame'))
 
 
-function incrementString (strng) {
+function incrementString(strng) {
   const parsed = strng.match(/([\w-]*[^\d]+)(\d*)$/)
   const format = str => 
     `${(parseInt(str, 10)+1).toString().padStart(str.length, '0')}`
@@ -526,3 +526,163 @@ function littleChild(child1, child2) {
 
 console.log(repeater('Foobar', 2))
 
+// string url is given. Return the parameter values in an array. The keys can be ignored.
+function getURLParams(url) {
+  return url.slice(url.indexOf('?') + 1)
+             .replace(/&/g, '=')
+             .split('=')
+             .filter((p, idx)  => idx % 2)
+}
+console.log(getURLParams('https://jscodebox.com/?action=new&user_id=3&force=false'))
+
+
+function camelCase(n) {
+  return n.trim()
+          .split(' ')
+          .map((s,idx) => idx === 0 ? `${s[0].toLowerCase()}${s.slice(1)}` : 
+             `${s[0].toUpperCase()}${s.slice(1)}`)
+          .join('')
+}
+
+console.log(camelCase(' Is not found  '))
+
+function swap(numbers) {
+  if (!numbers.length) return numbers
+  const arr = [...numbers]
+  arr[0] = numbers[numbers.length - 1]
+  arr[numbers.length - 1] = numbers[0]
+  return arr
+}
+
+console.log(swap([1,5,3,7,2,7,3]))
+
+/* Given is a string className. Create a p element which has className as class and className as content. In the output, the first letter should be displayed in capital letters. Append the created element to the body tag. */
+
+function welcomeToMyClass(className) {
+  const p = document.createElement('p')
+  p.classList.add(className)
+  p.innerHTML = `${className[0].toUpperCase()}${className.slice(1)}`
+  document.body.append(p)
+}
+
+/* Given are two strings correct and wrong. Return all characters that are defective. You can recognize defective characters by the fact that they are displayed incorrectly in the string wrong. Return an array with their values. */
+
+function keyboardError(correct, wrong) {
+  const res = []
+  for (let i = 0; i < correct.length; i++) {
+    if (correct[i] !== wrong[i] && !res.includes(correct[i])) {
+      res.push(correct[i])
+    }
+  }
+  return res
+}
+
+console.log(keyboardError('hello there', 'hgllu thgrg')) //['e','o']
+
+
+function calculateAverageGrade(scores) {
+  const avg = scores.reduce((acc, val) => acc + val) / scores.length
+  return +avg.toFixed(2)
+}
+
+console.log(calculateAverageGrade([50,0,100]))
+
+function cloneObject(object, removeProperties) {
+   const clone = {...object}
+   for (const p in clone) {
+     if (removeProperties.includes(p)) delete(clone[p])
+   }
+   return clone
+}
+
+console.log(cloneObject({"apples":7,"bananas":42,"citrones":20,"sausages":2}, ["sausages"]))
+
+
+function bin2dec(bin) {
+  return parseInt(bin, 2)
+}
+
+console.log(bin2dec('10011'))
+
+/* A small 'g' is 'happy', but only if a small 'g' follows before or after it. Return true if all g's are happy. */
+
+function gHappy(string) {
+  let ishappy = false
+  const g = [...string]
+  for (let i = 0; i < g.length; i++) {
+    if (g[i] === 'g' && !(g[i+1] === 'g' || g[i-1] === 'g')) {
+      ishappy = false
+      break
+    }
+    if (g[i] === 'g' && (g[i+1] === 'g' || g[i-1] === 'g')) {
+      ishappy = true
+    }
+  }
+  return ishappy
+}
+
+console.log(gHappy('xyggxyz'))
+
+
+function either404(numbers) {
+  const s = numbers.join('')
+  if(s.includes('00') && s.includes('44')) return false
+  if(s.includes('00') || s.includes('44')) return true
+  return false
+}
+
+console.log(either404([0,0,3,6,4,4]))
+
+
+function longest(string) {
+  if (!string) return 0
+  const counts = [...string].reduce((acc, val) => {
+    if (acc[val]) acc[val] += 1
+    else acc[val] = 1
+    return acc
+  },{})
+
+  return Math.max(...Object.values(counts))
+}
+
+console.log(longest('aaBBBBcDDee'))
+
+/* Given an array of integers arr and a target sum target, find all pairs of distinct integers that add up to the target sum. Return an array of arrays containing these pairs sorted in ascending order. If there are no such pairs, return an empty array. */
+
+function findPairs(arr, target) {
+  const res = []
+  for (let i = 0; i < arr.length; i++) {
+    const val = arr[i]
+    for (let j = i; j < arr.length; j++) {
+      if (val !== arr[j] && val + arr[j] === target) {
+        res.push([val, arr[j]].sort((a, b) => a - b))
+      }
+    }
+  }
+  return res.sort((a, b) => a[0] - b[0])
+}
+
+console.log(findPairs([3,7,8,4,5,9], 12))
+
+//const n = 5;
+//const queries = [[1, 2, 100], [2, 5, 100], [3, 4, 100]];
+//console.log(arrayManipulation(n, queries)); // Output: 200
+
+// In the example above, the array arr starts as [0, 0, 0, 0, 0].
+// After the first query, arr becomes [100, 100, 0, 0, 0].
+// After the second query, arr becomes [100, 200, 100, 100, 100].
+// After the third query, arr becomes [100, 200, 200, 200, 100],
+// and the maximum value in the array is 200.
+
+function arrayManipulation(n, queries) {
+  const arr = Array(n).fill(0)
+ for (let i = 0; i < queries.length; i++) {
+   const [s, e, num] = queries[i]
+   for (let j = s-1; j < e; j++) {
+     arr[j] += num
+   }
+ }
+ return Math.max(...arr)
+}
+
+console.log(arrayManipulation(5, [[1, 2, 100], [2, 5, 100], [3, 4, 100]]))
