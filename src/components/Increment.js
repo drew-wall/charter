@@ -5,8 +5,9 @@ function Increment() {
   const increment = useCallback(() => {
 	setCount(c => c + 1)
   }, [])
+
    return (
-	<div>
+	<div style={{ marginTop: '10px' }}>
   	<button onClick={increment}>Increment</button>
   	<p>Count: {count}</p>
 	</div>

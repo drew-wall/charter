@@ -686,3 +686,37 @@ function arrayManipulation(n, queries) {
 }
 
 console.log(arrayManipulation(5, [[1, 2, 100], [2, 5, 100], [3, 4, 100]]))
+
+const getLongestNonrepeatingString = (str) => {
+  let longest = ''
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[i+1] && str[i] !== str[i-1]) {
+      longest += str[i]
+    }
+    else {
+      longest += ','
+    }
+  }
+  return longest.split(',').reduce((acc, val) => {
+    if (val.length > acc.length) {
+      acc = val
+    }
+    return acc
+  }, '')
+}
+
+console.log(getLongestNonrepeatingString('123578999ABCDefGDDEFGHIJ'))
+
+const getRandomColor = () => {
+  let hexstr = ''
+  for (let i = 0; i < 16; i++) {
+    hexstr += i.toString(16).toUpperCase()
+  }
+ 
+  const randomhex = Array(6).fill('')
+    .map(x => hexstr[Math.floor(Math.random() * hexstr.length)])
+    .join('')
+  return `#${randomhex}`
+}
+console.log(getRandomColor())
+

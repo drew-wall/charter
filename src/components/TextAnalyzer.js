@@ -10,12 +10,8 @@ const TextAnalyzer = () => {
   const [paragraphs, setParagraphs] = useState(0)
   const [count, setCount] = useState(0);
  
-  const increment = useCallback(() => {
-	  setCount(c => c + 1);
-  }, []);
 
   const numbers = useMemo(() => [1, 2, 3, 4, 5], []);
-  const doubledNumbers = useMemo(() => numbers.map((n) => n * 2),[numbers]);
 
   const handleChange = (e) => {
     setText(() => e.target.value)
@@ -38,7 +34,7 @@ const TextAnalyzer = () => {
 
   return (
     <>
-      <h2>TextAnalyzer</h2>
+      <Typography variant='h4'>Text Analyzer</Typography>
       <textarea name="textanalyzer" value={text} onChange={handleChange} rows="10" cols="80"></textarea>
       <div>
         <span>Chars:{text.length}, </span>

@@ -1,0 +1,59 @@
+.cart {
+  width: 200px;
+  padding: 10px;
+  border-radius:  5%;
+  border: 1px solid rgb(22, 19, 19);
+}
+
+.cart-header {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.cart-items {
+  font-size: 22px
+}
+
+.swapodds-container {
+  display: flex;
+  align-items: center;
+}
+
+.swapodds-button {
+  height: 30px; 
+  width: 140px;
+}
+
+.flex {
+  display: flex;
+  align-items: center
+}
+
+.transfer-list {
+  border: 1px solid black;
+  border-radius: 5%;
+  width: 70px;
+  padding: 75px;
+  height: 150px;
+}
+
+.transfer-button {
+  margin: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, tr, td {
+  border: 2px solid gray;
+  padding: 5px;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}

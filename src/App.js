@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 import Joke from './components/joke'
 import MySimpleComponent from './components/mysimplecomponent'
 import Counter from './components/ counter'
@@ -16,6 +17,21 @@ import TestComponent from './components/TestComponent'
 import Usereftest from './components/Usereftest'
 import Stopwatch from './components/Stopwatch'
 import Paginate from './components/Paginate'
+import AsyncTest from './components/AsyncTest'
+import Points from './components/Points'
+import Checkout from './components/Checkout'
+import Synonyms from './components/Synonyms'
+import RandomColor from './components/RandomColor'
+import MemoryGame from './components/MemoryGame'
+import Quiz from './components/Quiz'
+import StopLight from './components/StopLight'
+import Rating from './components/Rating'
+import TicTacToe from './components/TicTacToe'
+import TabPanels from './components/TabPanels'
+import SwapOdds from './components/SwapOdds'
+import TransferList from './components/TransferList'
+import RandomUsers from './components/RandomUsers'
+import TestTs from './components/TestTs.tsx'
 
 function App() {
   console.log('APP rendered')
@@ -38,6 +54,21 @@ function App() {
       <Usereftest/>
       <Stopwatch/>
       <Paginate/>
+      <AsyncTest/>
+      <Points/>
+      <Checkout/>
+      <Synonyms/>
+      <RandomColor/>
+      <MemoryGame/>
+      <Quiz/>
+      <StopLight/>
+      <Rating/>
+      <TicTacToe size={3}/>
+      <TabPanels/>
+      <SwapOdds/>
+      <TransferList numItems={6}/>
+      <RandomUsers/>
+      <TestTs/>
     </>
   )
 }
