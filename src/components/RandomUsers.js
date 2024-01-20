@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Typography, Icon } from '@mui/material'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 const GetTableData = ({ data }) => {
@@ -101,20 +102,23 @@ function RandomUsers() {
 
   return (
     <>
-      <Typography sx={{ mt: 3, mb: 2 }} variant = 'h3'>Random Users</Typography>
-      <input style={{ marginBottom: '5px' }} name='filtered' value={filtered} onChange={(e) => setFiltered(e.target.value)} />
+      <Typography sx={{ mt: 3, mb: 2 }} variant = 'h3'>Random Users, filtering and sorting</Typography>
+      <div>
+        <input style={{ marginBottom: '5px' }} name='filtered' value={filtered} onChange={(e) => setFiltered(e.target.value)} />
+       <SearchIcon fontsize='large' />
+      </div>
       {users.length > 0 &&
         <table>
           <thead>
           <tr style={{ textAlign: 'left' }}>
             {Object.keys(flatten(users[0])).map((header, idx) => 
-             <th key={idx} onClick={() => orderBy(header.toLocaleLowerCase())}>{header}{getSortIcon(header)}</th>
+             <th key={idx} onClick={() => orderBy(header.toLowerCase())}>{header}{getSortIcon(header)}</th>
             )}
           </tr>
           </thead>
           <tbody>
             {getUsers().map((user, idx) => (
-              <tr key={idx}>
+              <tr key={idx} style={{ backgroundColor: idx % 2 === 0 ? 'white' : 'lightgray' }}>
                 <GetTableData data={user} />
               </tr>
             ))}

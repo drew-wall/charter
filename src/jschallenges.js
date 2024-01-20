@@ -720,3 +720,193 @@ const getRandomColor = () => {
 }
 console.log(getRandomColor())
 
+const firstNonRepeating = (array) => {
+    for (const a of array) {
+     if (array.indexOf(a) === array.lastIndexOf(a)) {
+       return a
+     }
+    }
+  }
+  
+  console.log(firstNonRepeating([1,3,2,4,2,1]))
+
+  const firstRepeating = (array) => {
+    for (const a of array) {
+     if (array.indexOf(a) !== array.lastIndexOf(a)) {
+       return a
+     }
+    }
+  }
+  
+  console.log(firstRepeating([1,3,2,4,2,5,4]))
+  
+  const uniqueWords = (array) => {
+    const result = []
+    array.flatMap(a => [...new Set(a)])
+      .forEach((w, _, words) => {
+        if (words.indexOf(w) === words.lastIndexOf(w)) {
+          result.push(w)
+        }
+    })
+    return result   
+  }
+  
+  console.log(uniqueWords([ ['hello', 'goodbye', 'hello', 'alpha'], ['alpha', 'bravo'] ]))
+  // [ 'hello', 'goodbye, 'bravo']
+  
+  
+  
+  // JPMORGANISHIRING
+  // frist row get every 4th chr starting at first chr => J R I R
+  // second row get every 2nd chr starting at second chr > P O G N S I I G
+  // thrid row get every 4th chr starting at 3rd chr > M A H N
+  const strChange = (str, numRows) => {
+    let chrArray = Array(numRows)
+    for (let i = 0; i < numRows; i++) {
+      chrArray[i] = []
+      chrArray[i].push(str.slice(i, i+1))
+      if (i % 2 === 0) {
+        for (let j = 1; j <= numRows; j++) {
+         chrArray[i].push(str.slice(j*numRows+j+i, j*numRows+j+1+i ))    
+        }
+      }
+      else {
+        for (let j = 1; j <= numRows*(numRows -1) + 1; j++) {
+           chrArray[i].push(str.slice(j*2+1, j*2+1+i))
+        }
+      }
+         
+        
+    }
+    console.log(chrArray)
+    return chrArray.flatMap(a => a).join('')
+  }
+  
+  const strChange1 = (s, numRows) => {
+    if (numRows === 1) {
+      return s
+    }
+    
+    let i = 0
+    let upOrDown = 1
+    let matrix = [...new Array(numRows)].map((e) => [])
+    
+    for (let j = 0; j < s.length; j++) {
+      matrix[i].push(s[j])
+      i += upOrDown
+      if (i === numRows - 1 || (upOrDown === -1 && i === 0)) {
+        upOrDown *= -1
+      }
+    }
+    return matrix.flat().join('')
+  }
+  
+  console.log(strChange1('JPMORGANISHIRING', 3))
+  // console.log(strChange1('JPMORGANISHIRING', 4))
+  // console.log(strChange1('A', 1))
+  
+  const replaceLongestZeros = (s) => {
+    const hm = {}
+    
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '0') {
+        if (!hm[i]) {
+          hm[i] = { stidx: i, enidx: i }
+        }
+         if (hm[i-1]) {
+          hm[i] = { ...hm[i-1], enidx: hm[i-1].enidx  + 1 }
+        }
+      } 
+    }
+    
+    let stidx = 0, enidx = 0
+    
+    for (const i in hm) {
+      if (hm[i].enidx - hm[i].stidx >= enidx - stidx) {
+        stidx = hm[i].stidx
+        enidx = hm[i].enidx
+      }
+    }
+    
+    return [...s].map((x, idx) =>
+      idx >= stidx && idx <= enidx ? '#' : x).join('')
+    
+  }
+  
+  console.log(replaceLongestZeros('1110100011100'))
+   console.log(replaceLongestZeros('0000000000000000000000000'))
+   console.log(replaceLongestZeros('111010001110011101000111001110100011100111010000111001110100011100'))
+    console.log(replaceLongestZeros('0'))
+    
+    
+   const flatten = (array) => {
+      const result = []
+      for (const a of array) {
+        if (Array.isArray(a)) {
+          const flattend = flatten(a)
+          result.push(...flattend)
+        }
+        else {
+          result.push(a)
+        }
+      }
+      return result
+    }
+    
+    console.log(flatten([1,2,[3, [4, 5]], 6]))
+    
+    
+   const isPalindrome = (s) => {
+      if (s[0] !== s[s.length -1 ]) return false
+      let rev = ''
+      for (const c of s) {
+        rev = `${c}${rev}`
+      }
+      if (rev === s) return true
+      return false
+    }
+    
+    console.log(isPalindrome('racecr'))
+    
+   const capEveryOtherChar = (s) => {
+      return [...s].map((x, i) => i % 2 === 0 ? x.toUpperCase() : x.toLowerCase()).join('')    
+    }
+    
+    
+    console.log(capEveryOtherChar('HELLO'))
+    console.log(capEveryOtherChar('yo eli'))
+    
+   /*  const closeDiv = (s) => {
+      
+      let res = ''
+      let counter = 0
+      let div = ''
+      for (let i = 0; i < s.length; i++) {
+        if (s[i] === '<')
+        for (let j = 1; j < 5; j++) {
+          div += s[i +j]
+        }
+        console.log(div)       
+      }
+    }
+    
+    
+    console.log(closeDiv('<div><div></div>')) */
+    
+   const sum1 = (...args) => 
+      args.reduce((acc, num) => acc + num, 0)
+    
+    
+    console.log(sum1(1,2,3,4,5,6))
+    
+   const stringIncludes = (a, b) => 
+      a.toLowerCase().includes(b.toLowerCase())
+      
+    console.log(stringIncludes('I live in New York City', 'new'))
+    
+    
+    const getIndexOfLargestInteger = (array) =>
+      array.indexOf(Math.max(...array))
+    
+    console.log(getIndexOfLargestInteger([1,30, 23, 40, 3, 2]))
+      
