@@ -909,4 +909,31 @@ const firstNonRepeating = (array) => {
       array.indexOf(Math.max(...array))
     
     console.log(getIndexOfLargestInteger([1,30, 23, 40, 3, 2]))
+
+    const insertIntoArray = (array, pos, val) => {
+      return [...array.slice(0, pos), val, ...array.slice(pos)]
+    }
+
+    console.log(insertIntoArray(['a','b','c'], 1, '_'))
+    
+    const removeFromArrayByValue = (array, val) => {
+      return array.filter(x => x !== val)
+    }
+    
+    console.log(removeFromArrayByValue(['a','b','c','d'], 'c'))
+    
+    const getLongestStringInArray = array => {
+      let maxLength = 0
+      let idx
+      for (let i = 0; i < array.length; i++) {
+        const len = array[i].length
+        if (len > maxLength) {
+          idx = i
+          maxLength = len
+        }
+      }
+      return array[idx]
+    }
+    
+    console.log(getLongestStringInArray(['abcd', 'efooooog', 'higjl']))
       
