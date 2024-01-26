@@ -57,3 +57,38 @@ thead {
   background-color: black;
   color: white;
 }
+
+.cells {
+  display: flex;
+  gap: 5px;
+}
+
+.cell {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell input {
+  width: 25px;
+  height: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cell-span {
+  background-color: white;
+  position: relative;
+  left: 50px;
+  height: 60px;
+}
+
+.cell-span:hover { 
+  background-color: aquamarine;
+  cursor: crosshair;
+}

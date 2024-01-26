@@ -32,6 +32,8 @@ import SwapOdds from './components/SwapOdds'
 import TransferList from './components/TransferList'
 import RandomUsers from './components/RandomUsers'
 import TestTs from './components/TestTs.tsx'
+import CustomUserHook from './components/CustomUserHook'
+import Cellinputs from './components/Cellinputs'
 
 function App() {
   console.log('APP rendered')
@@ -69,6 +71,8 @@ function App() {
       <TransferList numItems={6}/>
       <RandomUsers/>
       <TestTs/>
+      <CustomUserHook/>
+      <Cellinputs/>
     </>
   )
 }

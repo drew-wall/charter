@@ -105,7 +105,7 @@ function RandomUsers() {
       <Typography sx={{ mt: 3, mb: 2 }} variant = 'h3'>Random Users, filtering and sorting</Typography>
       <div>
         <input style={{ marginBottom: '5px' }} name='filtered' value={filtered} onChange={(e) => setFiltered(e.target.value)} />
-       <SearchIcon fontsize='large' />
+       <SearchIcon fontSize='large' />
       </div>
       {users.length > 0 &&
         <table>
