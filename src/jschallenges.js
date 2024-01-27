@@ -34,9 +34,20 @@ console.log(truncateWords('This is an example of truncating number of words', 7)
 
 const reverseString = str => str.split('').reverse().join('')
  console.log(reverseString('This is a string to be reversed'))
+
+ const strReverse = str => {
+  let revStr = ''
+  for (const c of str) {
+    revStr = `${c}${revStr}`
+  }
+  return revStr
+}
+
+console.log(strReverse('I need a job'))
  
  
 const numInStr = array => array.filter(value => /[0-9]/.test(value))
+
 console.log(numInStr(['abc', 'fgj9', '1', 'c39d', 'gggg']))
  
 
@@ -512,7 +523,8 @@ function littleChild(child1, child2) {
  console.log(littleChild(-5,-11))
  
  
- /* Given is a String string and a number n. Return a string with the section from 0 to n in a row. In each run n is to be decremented. */
+ /* Given is a String string and a number n. Return a string with the section
+ from 0 to n in a row. In each run n is to be decremented. */
  
  // 'JSCodeJSCodJSCoJSCJSJ'
  
@@ -565,7 +577,9 @@ function welcomeToMyClass(className) {
   document.body.append(p)
 }
 
-/* Given are two strings correct and wrong. Return all characters that are defective. You can recognize defective characters by the fact that they are displayed incorrectly in the string wrong. Return an array with their values. */
+/* Given are two strings correct and wrong. Return all characters that are defective.
+You can recognize defective characters by the fact that they are displayed
+incorrectly in the string wrong. Return an array with their values. */
 
 function keyboardError(correct, wrong) {
   const res = []
@@ -604,7 +618,8 @@ function bin2dec(bin) {
 
 console.log(bin2dec('10011'))
 
-/* A small 'g' is 'happy', but only if a small 'g' follows before or after it. Return true if all g's are happy. */
+/* A small 'g' is 'happy', but only if a small 'g' follows before or after it.
+Return true if all g's are happy. */
 
 function gHappy(string) {
   let ishappy = false
@@ -647,7 +662,10 @@ function longest(string) {
 
 console.log(longest('aaBBBBcDDee'))
 
-/* Given an array of integers arr and a target sum target, find all pairs of distinct integers that add up to the target sum. Return an array of arrays containing these pairs sorted in ascending order. If there are no such pairs, return an empty array. */
+/* Given an array of integers arr and a target sum target,
+find all pairs of distinct integers that add up to the target sum.
+Return an array of arrays containing these pairs sorted in ascending order.
+If there are no such pairs, return an empty array. */
 
 function findPairs(arr, target) {
   const res = []
@@ -834,9 +852,9 @@ const firstNonRepeating = (array) => {
   }
   
   console.log(replaceLongestZeros('1110100011100'))
-   console.log(replaceLongestZeros('0000000000000000000000000'))
-   console.log(replaceLongestZeros('111010001110011101000111001110100011100111010000111001110100011100'))
-    console.log(replaceLongestZeros('0'))
+  console.log(replaceLongestZeros('0000000000000000000000000'))
+  console.log(replaceLongestZeros('111010001110011101000111001110100011100111010000111001110100011100'))
+  console.log(replaceLongestZeros('0'))
     
     
    const flatten = (array) => {
@@ -919,7 +937,7 @@ const firstNonRepeating = (array) => {
     const removeFromArrayByValue = (array, val) => {
       return array.filter(x => x !== val)
     }
-    
+
     console.log(removeFromArrayByValue(['a','b','c','d'], 'c'))
     
     const getLongestStringInArray = array => {
