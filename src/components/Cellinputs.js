@@ -20,6 +20,7 @@ const Cells = ({ cells, addCell, changeCell }) => {
     </>
   )
 }
+
 function Cellinputs() {
   const [cells, setCells] = useState(['a', 'b', 'c'])
 
