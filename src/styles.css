@@ -92,3 +92,29 @@ thead {
   background-color: aquamarine;
   cursor: crosshair;
 }
+
+.products-cart {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-top: 10px;
+    background-color: #dddddd;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.product-items {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid grey;
+    width: 30%;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}

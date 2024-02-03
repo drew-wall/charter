@@ -34,6 +34,7 @@ import RandomUsers from './components/RandomUsers'
 import TestTs from './components/TestTs.tsx'
 import CustomUserHook from './components/CustomUserHook'
 import Cellinputs from './components/Cellinputs'
+import Products from './components/products/Products'
 
 function App() {
   console.log('APP rendered')
@@ -73,6 +74,7 @@ function App() {
       <TestTs/>
       <CustomUserHook/>
       <Cellinputs/>
+      <Products />
     </>
   )
 }

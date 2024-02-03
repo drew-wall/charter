@@ -954,4 +954,14 @@ const firstNonRepeating = (array) => {
     }
     
     console.log(getLongestStringInArray(['abcd', 'efooooog', 'higjl']))
+
+    const checkPangram = str => {
+      let arr = str.toLowerCase().split('').filter(x => /[a-z]/.test(x))
+      if ([...new Set(arr)].join('').length === 26) return true
+      return false 
+    }
+    
+    console.log(checkPangram('The quick brown fox jumps over a lazy dog.'))
+    console.log(checkPangram ('Waltz, bad nymph, for quick jigs vex.'))
+
       
