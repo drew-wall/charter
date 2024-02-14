@@ -118,3 +118,33 @@ thead {
     margin-top: 10px;
     gap: 10px;
 }
+
+.progressBar {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: lightgray;
+  height: 20px;
+  width: 500px;
+  overflow: hidden;
+}
+
+.progressBar div {
+  background-color: #00c251;
+  height: 100%;
+  margin-top: -20px;
+}
+
+.progressBar span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.jobBoardItem {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  width: 400px;
+}

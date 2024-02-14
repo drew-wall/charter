@@ -964,4 +964,40 @@ const firstNonRepeating = (array) => {
     console.log(checkPangram('The quick brown fox jumps over a lazy dog.'))
     console.log(checkPangram ('Waltz, bad nymph, for quick jigs vex.'))
 
+    
+    const memoize = (fn, context) => {
+      let cache = {}
+      return (...args) => {
+        const argVals = JSON.stringify(args)
+        if (!cache[argVals]) {
+          cache[argVals] = fn.call(context || this, ...args)
+        }
+        return cache[argVals]
+      }
+    }
+    
+    const addNumbers = (...args) => 
+      args.reduce((acc, val) => acc + val, 0)
       
+    const memoizeAddNumbers = memoize(addNumbers)
+    
+    console.log(memoizeAddNumbers(1,2,3,4))
+    console.log(memoizeAddNumbers(1,2,3,4))
+    console.log(memoizeAddNumbers(1,2,3,4,5))
+    console.log(memoizeAddNumbers(1,2,3,4,5))
+    
+    
+    const once = (fn, context) => {
+      let ran
+      return (...args) => {
+        if (!ran) {
+          ran = true
+          return fn.call(context || this, ...args)
+        }
+      }
+    }
+    
+    const onetime = once(console.log)
+    console.log(onetime('Once'))
+    console.log(onetime('Twice'))
+    

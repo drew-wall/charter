@@ -78,7 +78,7 @@ const Products = () => {
           {products.map((prod, idx) =>
             <div key={prod.id} className='product-items'>
               <img src={prod.thumbnail} alt={prod.title} height="200" width="200" />
-              <span>{prod.title}, ${prod.price} </span>
+              <span>{prod.title}: ${prod.price.toLocaleString()} </span>
               <ButtonAddToCart handleclick={() => addToCart(idx, prod.id)} />
               <ButtonRemoveFromCart disabled={!isInCart(prod)} handleclick={() => removeFromCart(prod.id, true)} />
             </div>

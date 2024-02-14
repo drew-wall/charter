@@ -35,12 +35,16 @@ import TestTs from './components/TestTs.tsx'
 import CustomUserHook from './components/CustomUserHook'
 import Cellinputs from './components/Cellinputs'
 import Products from './components/products/Products'
+import ProgressBar from './components/ProgressBar'
+import JobBoard from './components/jobboard/JobBoard'
+import CounterHook from './components/CounterHook'
 
 function App() {
   console.log('APP rendered')
   return (
     <>
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <CounterHook/>
       <Weather/>
       <Joke/>
       <MySimpleComponent/>
@@ -75,6 +79,8 @@ function App() {
       <CustomUserHook/>
       <Cellinputs/>
       <Products />
+      <ProgressBar />
+      <JobBoard />
     </>
   )
 }

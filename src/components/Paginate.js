@@ -2,18 +2,20 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Button, Input, Typography } from '@mui/material'
 
 const PageList = ({ numPages, pageSelected, page }) => {
-  const pages = []
-  for (let i = 0; i < numPages; i++) {
-    pages.push(i)
-  }
+  const pages = [...Array(numPages).keys()];
 
   return (
     <div>
-      <Button disabled={page === 0} onClick={() => pageSelected(page - 1)}>Previous</Button>
+      <Button disabled={page === 0} onClick={() => pageSelected(page - 1)}>
+         Previous
+      </Button>
       {pages.map(p =>
-        <Button  size="small" onClick={() => pageSelected(p)} key={p} variant={p === page ? 'contained' : 'outlined'}>{p+1}
+        <Button  size="small" onClick={() => pageSelected(p)} key={p} variant={p === page ? 'contained' : 'outlined'}>
+           {p+1}
         </Button>)}
-      <Button disabled={page === numPages -1} onClick={() => pageSelected(page + 1)}>Next</Button>
+        <Button disabled={page === numPages - 1} onClick={() => pageSelected(page + 1)}>
+           Next
+        </Button>
     </div>
   )
 }

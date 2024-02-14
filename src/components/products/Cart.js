@@ -6,7 +6,7 @@ const Cart = ({ cart, incQty, decQty, clearCart }) => {
         <h3 style={{ marginLeft: '5px' }}>   
           Cart: {total > 0 ? 
             <>
-              <span>${total}</span>
+              <span>${total.toLocaleString()}</span>
               <button onClick={() => clearCart([])} style={{ marginLeft: '20px' }}>
                 Clear Cart
               </button>
@@ -16,7 +16,7 @@ const Cart = ({ cart, incQty, decQty, clearCart }) => {
          cart.map((prod, idx) =>
          <div style={{ marginBottom: '5px', marginLeft: '5px' }} key={prod.id}>
             <img style={{ marginRight: '5px' }} src={prod.thumbnail} height="30" width="30" alt="" />
-            {prod.title}, ${prod.price}
+            {prod.title}, ${prod.price.toLocaleString()}
             <button style={{ marginLeft: '3px' }}
                onClick={() => incQty(idx, prod.id)}>
                +

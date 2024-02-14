@@ -5,10 +5,10 @@ import { Typography } from '@mui/material'
 
 const Users = ({ first, last, thumbnail }) => {
   return (
-    <div>
+    <div style={{ minHeight: '80px' }}>
       <span>{first} </span>
       <span>{last} </span>
-      <img src={thumbnail} alt="" />
+      <img src={thumbnail} alt={last} height="50" width="50" />
     </div>
   )
 }
@@ -30,7 +30,7 @@ function CustomUserHook() {
                key={idx}>{first} {last} </span>
         )}
         </div>
-        <div>
+        <div style={{ minHeight: '80px' }}>
           {users ? 
             <Users first={user.first} last={user.last} thumbnail={user.thumbnail}/>  : null}
         </div>
