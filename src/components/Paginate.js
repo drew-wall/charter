@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Button, Input, Typography } from '@mui/material'
 
-const PageList = ({ numPages, pageSelected, page }) => {
+const PageBar = ({ numPages, pageSelected, page }) => {
   const pages = [...Array(numPages).keys()];
 
   return (
@@ -10,7 +10,8 @@ const PageList = ({ numPages, pageSelected, page }) => {
          Previous
       </Button>
       {pages.map(p =>
-        <Button  size="small" onClick={() => pageSelected(p)} key={p} variant={p === page ? 'contained' : 'outlined'}>
+        <Button  size="small"
+           onClick={() => pageSelected(p)} key={p} variant={p === page ? 'contained' : 'outlined'}>
            {p+1}
         </Button>)}
         <Button disabled={page === numPages - 1} onClick={() => pageSelected(page + 1)}>
@@ -37,8 +38,8 @@ function Paginate() {
 
   const handlePageSize = (e) => {
     if (e.target.value) {
-      setPageSize(p => +e.target.value)
-      setPage(p => 0)
+      setPageSize(+e.target.value)
+      setPage(0)
     }
   }
 
@@ -54,8 +55,9 @@ function Paginate() {
     <>
       <Typography sx={{mt: 5}} variant="h4">Pagination Example</Typography>
       <h4>Enter Number of Items per Page:</h4>
-      <Input sx={{mb: 3}} name='pagesize' type='number' min="5" max="100" value={pageSize} onChange={handlePageSize} />
-      <PageList numPages={numPages} pageSelected={handlePageSelected} page={page}/>
+      <Input sx={{mb: 3}} name='pagesize' type='number' max="100"
+         value={pageSize} onChange={handlePageSize} />
+      <PageBar numPages={numPages} pageSelected={handlePageSelected} page={page}/>
       <ul>
         {getPostsByPage().map(post => <li key={post.id}>{post.title}</li>)}
       </ul>

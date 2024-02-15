@@ -1001,3 +1001,13 @@ const firstNonRepeating = (array) => {
     console.log(onetime('Once'))
     console.log(onetime('Twice'))
     
+
+    for (var i = 0; i < 3; i++) {
+      setTimeout((k => {
+        return () => {console.log(k)}
+      })(i), 1000)
+    }
+
+    const range = [...Array(5).keys()]
+    console.log(range)
+    

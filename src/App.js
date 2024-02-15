@@ -38,6 +38,7 @@ import Products from './components/products/Products'
 import ProgressBar from './components/ProgressBar'
 import JobBoard from './components/jobboard/JobBoard'
 import CounterHook from './components/CounterHook'
+import Products1 from './components/Products1'
 
 function App() {
   console.log('APP rendered')
@@ -81,6 +82,7 @@ function App() {
       <Products />
       <ProgressBar />
       <JobBoard />
+      <Products1 />
     </>
   )
 }
