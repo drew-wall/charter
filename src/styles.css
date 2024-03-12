@@ -148,3 +148,75 @@ thead {
   padding: 5px;
   width: 400px;
 }
+
+.todoItem {
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+  height: 40px;
+  background-color: lightblue;
+  border-radius: 10px;
+  border: 2px solid darkblue;
+  font-size: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.wordle-container {
+  display: flex;
+  flex-direction: column;
+  width: 295px;
+  height: 360px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 24px;
+  justify-content: space-evenly;
+}
+
+.wordle-lines {
+  display: flex;
+  height: 50px;
+  width: 275px;
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wordle-tile {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 4px;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 42px;
+  width: 45px;
+}
+
+.wordle-keyboard {
+  width: 300px;
+  height: 75px;
+  margin-top: 8px;
+  margin-bottom: 50px;
+}
+
+.wordle-correct {
+  background-color: lightgreen;
+}
+
+.wordle-close {
+  background-color: rgb(209, 209, 59);
+}
+
+.wordle-incorrect {
+  background-color: lightgray;
+}
+
+.wordle-gameover {
+  font-size: 24px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+

@@ -38,14 +38,22 @@ import Products from './components/products/Products'
 import ProgressBar from './components/ProgressBar'
 import JobBoard from './components/jobboard/JobBoard'
 import CounterHook from './components/CounterHook'
-import Products1 from './components/Products1'
+import TodosApp from './components/todos/TodosApp'
+import Lazyload from './components/Lazyload'
+import Wordle from './components/wordle/Wordle'
+
+
 
 function App() {
   console.log('APP rendered')
   return (
     <>
+      
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <Wordle />
+      <Lazyload/>
       <CounterHook/>
+      <TodosApp />
       <Weather/>
       <Joke/>
       <MySimpleComponent/>
@@ -81,8 +89,7 @@ function App() {
       <Cellinputs/>
       <Products />
       <ProgressBar />
-      <JobBoard />
-      <Products1 />
+      {/* <JobBoard /> */}
     </>
   )
 }

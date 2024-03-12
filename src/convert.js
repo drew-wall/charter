@@ -17,27 +17,24 @@ try {
 catch (e) {
   console.log(e) 
 }
-
+ 
 const hm = store?.reduce((acc, val) => {
-  acc[val.deviceId] = val.storeId
-  acc[val.storeId] = val.deviceId
+  acc.deviceIds[val.deviceId] = val.storeId
+  acc.storeIds[val.storeId] = val.deviceId
   return acc
-}, {})
+}, { storeIds: {}, deviceIds: {} })
+
+console.log(hm)
+
 
 const convertStoreIdToDeviceId = (storeId) => {
-  const res = store?.find(x => x.storeId === storeId)
-  return res ? res.deviceId : null
+  return hm.storeIds[storeId]
 }
 
 const convertDeviceIdToStoreId = (deviceId) => {
-  const res = store?.find(x => x.deviceId === deviceId)
-  return res ? res.storeId : null
+  return hm.deviceIds[deviceId]
 }
 
-const convert = id => {
-  return hm[id]
-}
 
 console.log(convertStoreIdToDeviceId("1024"))
 console.log(convertDeviceIdToStoreId("973497584"))
-console.log(convert("1026"))
