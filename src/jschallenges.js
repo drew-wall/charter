@@ -990,8 +990,8 @@ const firstNonRepeating = (array) => {
     const once = (fn, context) => {
       let ran
       return (...args) => {
+        ran = true
         if (!ran) {
-          ran = true
           return fn.call(context || this, ...args)
         }
       }
@@ -1010,4 +1010,85 @@ const firstNonRepeating = (array) => {
 
     const range = [...Array(5).keys()]
     console.log(range)
+
     
+    const findTheRabbit = (len) => {
+      let pos = Math.floor(Math.random() * len)
+
+      function step() {
+        if (Math.random() > 0.5) {
+          pos += 1
+        }
+        else {
+          pos -= 1
+        }
+        pos = Math.min(pos, len)
+        pos = Math.max(0, pos)
+      }
+      
+      let found = false
+      for (let i = 0; i < len; i++) {
+        if (i === pos) {
+          console.log('Found rabbit at', pos)
+          found = true
+          break
+        }
+        step()
+      }
+      
+      if (!found) {
+        for (let i = 1; i < len; i++) {
+          if (i === pos) {
+            console.log('Found rabbit at', pos)
+            found = true
+            break
+          }
+          step()
+        }
+      }
+      
+      if (!found) {
+        console.log('Failed to find Rabbit -)')
+      }
+    }
+    
+    findTheRabbit(100)
+
+
+  const hasRepeatingChar = str => {
+    const res = [...str].filter((s, i, arr) => 
+      arr.indexOf(s) !== arr.lastIndexOf(s))
+    return res.length > 0
+  }
+  console.log(hasRepeatingChar('FLESH'))
+
+
+  const arrayIncludes = (a1, a2) => {
+    const str1 = a1[0].toLowerCase()
+    const str2 = a2[0].toLowerCase()
+    for (const c of str2) {
+      if (!str1.includes(c)) return false
+    }
+    return true
+ }
+ 
+ console.log(arrayIncludes(['voodoo'], ['on'])) // false
+ console.log(arrayIncludes(['Alien'], ['line'])) // true
+
+
+  
+ const counter = () => {
+  let count = 0
+  return () => {
+    return count += 1
+  }
+}
+ 
+const c = counter()
+console.log(c())
+console.log(c())
+console.log(c())
+
+
+
+

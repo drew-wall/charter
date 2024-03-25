@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import useLocalStorage from "use-local-storage";
-import fmtMSS from '../../utils/fmtmss';
+import hasRepeatingChar from '../../utils/has_repeating_char';
 import Timer from './Timer';
 import Keyboard from './Keyboard';
 import ResultsModal from './ResultsModal';
+import Button from '@mui/material/Button'
 import { Typography } from '@mui/material'
 
 
@@ -31,10 +32,19 @@ function Wordle() {
   const [gameOver, setGameOver] = useState(true)
   const [success, setSuccess] = useState(false)
   const [timeElapsed, setTimeElapsed] = useState(0)
+  const [mode, setMode] = useState('Hard')
+
+  const getCurrentWord = () => {
+    while(true) {
+      const currword =  words[Math.floor(Math.random() * words.length)]
+      if (mode === 'Hard') return currword
+      if (hasRepeatingChar(currword)) continue
+      return currword
+    }
+  }
 
   const play = () => {
-    word.current = words[Math.floor(Math.random() * words.length)]
-   // console.log(word.current)
+    word.current = getCurrentWord()
     setBoard(initWordleBoard())
     setCurrentLine(0)
     setCurrentTile(0)
@@ -43,7 +53,6 @@ function Wordle() {
     setTimeElapsed(0)
     charClass = {}
     if (!results) setResults([])
-    console.log(results)
   }
 
   useEffect(() => {
@@ -84,7 +93,6 @@ function Wordle() {
   const doGameOver = (solved, guess, line) => {
     setGameOver(true)
     setSuccess(solved)
-   
     setResults([...results, 
       { word: word.current, guess, time: timeElapsed, date: Date.now(),
         line: line + 1, success: solved }])
@@ -125,9 +133,15 @@ function Wordle() {
   return (
     <>
       <Typography sx={{ mt: 3, mb: 1}} variant='h3'>Wordle</Typography>
-      <div>NOTICE: You can use backspace anytime on the current line, except the last tile<br/> which will automaticly submit your guess and then go to the next line</div>
       <Timer elapsedtime={timeElapsed} />
       {results && results.length && <ResultsModal results={results} />}
+      <div style={{ marginLeft: '8px', fontSize: '16px' }}>Mode: {mode}
+          <Button
+            disabled={!gameOver}
+            onClick={() => setMode(mode === 'Hard' ? 'Easy' : 'Hard')}>
+            Toggle Mode
+          </Button>
+      </div>
       <div className='wordle-container'>
         {board.map((line, idx) => 
           <div className='wordle-lines' key={idx}>
@@ -141,15 +155,20 @@ function Wordle() {
       {gameOver ? 
         <div 
           className='wordle-gameover'>
-            {success ? 'Congrats, you crushed it!' : 
+            {success ? `Congrats, ${word.current} is correct!` : 
             word.current ? `Sorry you are wrong, word is ${word.current}` : ''}
           <div><button style={{ fontSize: '20px',marginLeft: '4px', marginTop: '10px' }} 
-            onClick={() => play()}>Play Wordle!</button>
+            onClick={() => play()}>Start Game</button>
           </div>
-      </div> : <div>Game has started, use keypad below to select letters. Good Luck!...</div>}
+        </div> : 
+        <div 
+          style={{ backgroundColor: 'aliceblue', width: '300px', fontSize: '16px', border: '1px solid black', borderRadius: '5px', marginTop: '5px', padding: '5px'}}>
+          Game has started, use keypad below to select letters. Good Luck!<br/>
+          NOTE: Once you select the last letter on a line your guess will be auto submitted.
+        </div>}
       <Keyboard
         charClass={charClass}
-        tile={currentTile}
+        backspaceDisabled={currentTile === 0 ? true : false}
         handleClick={handleCharClicked}/>
     </>
   )
