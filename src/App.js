@@ -41,6 +41,9 @@ import CounterHook from './components/CounterHook'
 import TodosApp from './components/todos/TodosApp'
 import Lazyload from './components/Lazyload'
 import Wordle from './components/wordle/Wordle'
+import Names from './components/Names'
+import Calls from './components/Calls'
+import Formexample from './components/Formexample.js'
 
 
 
@@ -50,6 +53,9 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <Formexample />
+      <Calls />
+      <Names />
       <Wordle />
       <Lazyload/>
       <CounterHook/>

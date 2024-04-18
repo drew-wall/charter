@@ -8,7 +8,7 @@
  */
 const checkPangram = str => {
   let arr = str.toLowerCase().split('').filter(x => /[a-z]/.test(x))
-  if ([...new Set(arr)].join('').length === 26) return true
+  if ([...new Set(arr)].length === 26) return true
   return false 
 }
 
