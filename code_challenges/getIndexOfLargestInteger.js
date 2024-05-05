@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Array} array - array of integers
- * @returns {Number} integer
+ * @param Array array - array of integers
+ * @returns Integer
  * 
  * function to get index of largest integer in an array of integers
  */

@@ -1,6 +1,6 @@
 /**
  * 
- * @returns {Function} function
+ * @returns Function
  * 
  * Example of a closure which returns a function
  * that has access to variables in the outer function

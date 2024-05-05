@@ -1,7 +1,7 @@
 /**
  * 
- * @param {String} str - string of words with length <= 140
- * @returns {String | Boolean}  String or Boolean
+ * @param String str - string of words with length <= 140
+ * @returns String | Boolean
  * 
  * function to return a string of words concatenated in Pascal case
  * prepended with a '#'. Null strings or strings of length over

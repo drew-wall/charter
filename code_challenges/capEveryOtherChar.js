@@ -1,7 +1,7 @@
 /**
  * 
- * @param {String} str -string 
- * @returns {String} string
+ * @param String str 
+ * @returns String
  * 
  * function to capitalize every other character in a string
  */

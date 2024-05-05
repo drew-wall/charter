@@ -1,6 +1,6 @@
 /**
  * 
- * @param {Array} array - Array
+ * @param Array array
  * @returns {any | undefined} any | undefined
  * 
  * function to find the first non repeating element in an array

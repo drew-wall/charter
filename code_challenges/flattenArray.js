@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Array} array 
- * @returns {Array} array
+ * @param Array array 
+ * @returns Array
  * 
  * function which flattens nested arrays into one array
  */

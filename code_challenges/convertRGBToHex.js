@@ -1,9 +1,9 @@
 /**
  * 
- * @param {Number} r - the red value
- * @param {Number} g - the green value
- * @param {Number} b - the blue value
- * @returns {String} String
+ * @param Number r - the red value
+ * @param Number g - the green value
+ * @param Number b - the blue value
+ * @returns String
  * 
  * function that takes r,g,b values and converts
  * to hexidecimal string in uppercase

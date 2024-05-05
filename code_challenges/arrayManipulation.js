@@ -10,9 +10,9 @@
 
 /**
  * 
- * @param {Number} n number
- * @param {Array} queries Array
- * @returns {Number} number
+ * @param Number n
+ * @param Array queries Array
+ * @returns Number
  */
 const arrayManipulation = (n, queries) => {
   const arr = Array(n).fill(0)

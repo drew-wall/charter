@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Array} array 
- * @returns {any | undefined} any | undfined
+ * @param Array array 
+ * @returns  any | undefined
  * 
  * function to return the first repeating element in an array
  * or undefined if no repeating elements

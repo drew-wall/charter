@@ -1,15 +1,15 @@
 /**
  * 
- * @param {String} str - String
- * @returns {Object} - Object
+ * @param String str
+ * @returns Object
  * 
- * function to return count of each character in a string
+ * function to get counts of each character in a string and return
+ * in an object with key being the character and value being count
  * 
  */
 const countChars = str => {
   const res = [...str].reduce((acc, val) => {
-    if (acc[val]) acc[val] += 1
-    else acc[val] = 1
+    acc[val] ? acc[val] += 1 : acc[val] = 1
     return acc    
   }, {})
   return res

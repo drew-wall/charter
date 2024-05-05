@@ -1,5 +1,5 @@
 /**
- * @param {Array} array 
+ * @param Array array 
  * @returns Array
  * 
  * function to remove duplicate items in an array

@@ -1,6 +1,6 @@
 /**
  * 
- * @param {Array} numarray  of numbers
+ * @param Array array  of numbers
  * @returns Number
  * 
  * function to sum an array of numbers

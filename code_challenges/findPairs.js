@@ -5,9 +5,9 @@ If there are no such pairs, return an empty array. */
 
 /**
  * 
- * @param {Array} arr - array of integers
- * @param {Number} target - integer
- * @returns {Array} Array
+ * @param Array arr - array of integers
+ * @param Integer target
+ * @returns Array
  * 
  * function which returns array of arrays where pairs of
  * values in arr add up to the target value

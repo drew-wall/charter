@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Array} array 
- * @returns {Array} array
+ * @param Array array 
+ * @returns Array
  * 
  * function given an array of two arrays of strings
  * will return array of unique strings between the

@@ -1,7 +1,7 @@
 /**
  * 
- * @param {String} str - string
- * @returns {Boolean} boolean
+ * @param String str
+ * @returns Boolean
  * 
  * function to check if str is a pangram. i.e; string contains
  * all letters of the english alphabet

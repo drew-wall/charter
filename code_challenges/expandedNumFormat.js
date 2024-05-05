@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Number} num 
- * @returns {String} String
+ * @param Number num 
+ * @returns String
  * 
  * function to convert a number to expanded format
  * ex. 70303 returns '70000 + 300 + 3'

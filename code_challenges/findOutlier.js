@@ -1,7 +1,7 @@
 /**
  * 
- * @param {Array} integers - array of integers
- * @returns {Number} Integer
+ * @param Array array of integers
+ * @returns Integer
  * 
  * function to find outlier in array of integers
  * based on whether it is odd or even, 

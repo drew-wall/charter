@@ -1,7 +1,7 @@
 /**
  * 
- * @param {String} str 
- * @param {Number} size 
+ * @param String str 
+ * @param Number size 
  * @returns Array
  * 
  * function to chop a string into chunks based on size and push them to array

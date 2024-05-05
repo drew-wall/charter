@@ -44,6 +44,7 @@ import Wordle from './components/wordle/Wordle'
 import Names from './components/Names'
 import Calls from './components/Calls'
 import Formexample from './components/Formexample.js'
+import Countries from './components/Countries'
 
 
 
@@ -53,6 +54,7 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <Countries />
       <Formexample />
       <Calls />
       <Names />
