@@ -7,8 +7,16 @@ const lines = fs.readFileSync('code_challenges/fixtures/coding_qual_input.txt', 
     process.exit(-1)
   }
 
-// build a pyramid (arry of arrays) of the data and choose the last one 
-// in each nested array to get secret words
+/**
+ * 
+ * @param {String} data - lines with a number and text
+ * @returns string
+ * 
+ * Function to get lines from a file with a number and text,
+ * build a pyramid (array of arrays) and select the last
+ * value in each subarray, get correspoding text, then
+ * concatenate the text, space separated.
+ */
 function secretWords(data) {
   const array = data.split('\n')
   const obj = {}

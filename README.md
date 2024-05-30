@@ -4,16 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install repo
 
-From command line: \
-git clone https://github.com/drew-wall/charter.git \
-cd charter \
+From command line:
+git clone https://github.com/drew-wall/charter.git
+cd charter
 npm install
 
 ## Run the express server
 
   node server
 
-## Solutions to various js code challenges
+## Solutions to various js code challenges are in this folder
 
 code_challenges
 

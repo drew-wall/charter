@@ -46,6 +46,7 @@ import Calls from './components/Calls'
 import Formexample from './components/Formexample.js'
 import Countries from './components/Countries'
 import DelayText from './components/DelayText'
+import Travel from './components/Travel'
 
 
 
@@ -55,6 +56,7 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <Travel />
       <DelayText />
       <Countries />
       <Formexample />
