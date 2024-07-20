@@ -47,9 +47,10 @@ function Paginate() {
     return posts.slice(page * pageSize, pageSize+(page * pageSize))
   }
 
-  const handlePageSelected = page => {
+  const handlePageSelected = useCallback((page) =>  {
     setPage(page)
-  }
+  }, [])
+  
 
   return (
     <>

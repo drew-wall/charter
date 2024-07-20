@@ -47,6 +47,11 @@ import Formexample from './components/Formexample.js'
 import Countries from './components/Countries'
 import DelayText from './components/DelayText'
 import Travel from './components/Travel'
+import Login from './components/Login'
+import Passcode from './components/Passcode'
+import MulltiSelectStates from './components/multiselectstates/MulltiSelectStates'
+import OtpLogin from './components/OtpLogin'
+import AutoSuggest from './components/AutoSuggest'
 
 
 
@@ -56,6 +61,11 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <AutoSuggest /> 
+      <OtpLogin />
+      <MulltiSelectStates />
+      <Passcode />
+      <Login />
       <Travel />
       <DelayText />
       <Countries />

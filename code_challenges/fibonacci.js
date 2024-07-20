@@ -1,15 +1,18 @@
 
+/**
+ * 
+ * @param {Number} num 
+ * @returns Array
+ * 
+ * Function to return fibonacci number
+ */
 const fibonacci = num => {
-  let n1 = 0, n2 = 1, next
-  const arr = []
-  while (num) {
-    next = n1 + n2;
-    n1 = n2;
-    n2 = next;
-    num--
-    arr.push(n1)
+  let arr = [0,1]
+  for (let i = 2; i <= num; i++) {
+    arr.push(arr[i - 1] + arr[i - 2])
   }
-  return arr
+  return arr[num]
 }
 
-export default fibonacci
+console.log(fibonacci(10))
+//export default fibonacci

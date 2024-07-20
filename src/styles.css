@@ -232,4 +232,75 @@ thead {
   height: 1000px;
 }
 
+.passcode-div {
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
+.passcode-div button {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  font-size: 14px;
+}
+
+.MSS-panel {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  width: 550px;
+  height: 520px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-around;
+  align-items: baseline;
+  overflow-y: auto;
+}
+.MSS-button { 
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.MSS-label {
+  font-size: 22px;
+  padding-right: 15px;
+}
+
+.MSS-label-selected {
+  background-color: lightblue;
+  border-radius: 12px;
+}
+
+.OTP-input {
+  height: 50px;
+  width: 50px;
+  margin-left: 15px;
+  font-size: 28px;
+  border-radius: 15px;
+  border: 1px solid darkgrey;
+  text-align: center;
+}
+
+.AutoSuggest-list {
+  width: 400px;
+  height: 500px;
+  border: 1px solid gray;
+  overflow: auto;
+}
+
+.AutoSuggest-listitem {
+  font-size: 26px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.AutoSuggest-listitem:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
