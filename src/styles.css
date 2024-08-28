@@ -295,12 +295,67 @@ thead {
 }
 
 .AutoSuggest-listitem {
-  font-size: 26px;
-  padding: 5px;
-  margin: 5px;
+  font-size: 22px;
+  padding: 3px;
+  margin: 3px;
 }
 
 .AutoSuggest-listitem:hover {
   background-color: lightgrey;
   cursor: pointer;
+}
+
+.WAM-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 24px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  width: 112px;
+  height: 112px;
+  justify-content: flex-start;
+  align-content: space-around;
+  align-items: baseline;
+}
+
+.WAM-grid button {
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  padding-left: 4px;
+}
+
+.box-panel {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 240px;
+  height: 240px;
+}
+
+.box-item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.selectable-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 10), 35px);
+  grid-template-rows: repeat(var(--rows, 10), 35px);
+  gap: 2px;
+  user-select: none;
+}
+
+.selectable-grid-box {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-selected {
+  background-color: lightblue;
 }

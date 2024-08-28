@@ -36,7 +36,7 @@ const AutoSuggest = () => {
 
   useEffect(() => {
     if (debounceValue) {
-      setValues(items.filter(it => it.includes(debounceValue.toLowerCase())))
+      setValues(items.filter(it => it.toLowerCase().includes(debounceValue.toLowerCase())))
     }
     else {
       setValues([])

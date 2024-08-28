@@ -52,6 +52,12 @@ import Passcode from './components/Passcode'
 import MulltiSelectStates from './components/multiselectstates/MulltiSelectStates'
 import OtpLogin from './components/OtpLogin'
 import AutoSuggest from './components/AutoSuggest'
+import Tree from './components/Tree'
+import WackAMole from './components/WackAMole'
+import ClickBoxes from './components/ClickBoxes'
+import SelectableGrid from './components/SelectableGrid'
+import SwapListItems from './components/SwapListItems'
+import PostsById from './components/PostsById'
 
 
 
@@ -61,6 +67,12 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <PostsById />
+      <SwapListItems />
+      <SelectableGrid />
+      <ClickBoxes />
+      <WackAMole />
+      <Tree />     
       <AutoSuggest /> 
       <OtpLogin />
       <MulltiSelectStates />
