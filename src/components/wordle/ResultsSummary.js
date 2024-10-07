@@ -3,11 +3,10 @@ import { Typography, Rating } from '@mui/material'
 import fmtMSS from '../../utils/fmtmss';
 
 
-const lineRatios = [1, .83, .66, .49, .32, .17]
+const lineRatios = [1, .8, .7, .6, .5, .4]
 const timeRatios = [1, .9, .8, .7, .6, .5, .4, .3, .2, .1]
 
 function ResultsSummary({ results }) {
-  console.log('Results Summary rendered')
   const numResults = results.length
   const correctResults = results.filter(r => r.success === true)
   const avgTime = Math.round(results.reduce((acc, val) => acc + val.time, 0) / numResults)
@@ -33,7 +32,6 @@ function ResultsSummary({ results }) {
   }
 
   const totalScore = Math.round(((100 * lineScore) + (100 * timeScore)) * (pctCorrect / 100))
-  console.log('Total Score', totalScore)
 
   return (
     <>

@@ -1,8 +1,13 @@
 import React from 'react'
 import BackspaceTwoToneIcon from '@mui/icons-material/BackspaceTwoTone';
 
+type Tprops = {
+  charClass: Object;
+  backspaceDisabled: boolean;
+  handleClick: Function;
+}
 
-const Keyboard = ({charClass, backspaceDisabled, handleClick }) => {
+const Keyboard = ({charClass, backspaceDisabled, handleClick }: Tprops) => {
     const lines = [
       ['QWERTYUIOP'],
       ['ASDFGHJKL'],
@@ -13,7 +18,7 @@ const Keyboard = ({charClass, backspaceDisabled, handleClick }) => {
       if (char !== '<') {
         return (
            <button className={charClass[char] || ' '} 
-             style={{ fontSize: '20px', marginLeft: '2px' }} 
+             style={{ fontSize: '24px', marginLeft: '2px', cursor: 'pointer' }} 
              onClick={() => handleClick(char)}
            >
              {char}

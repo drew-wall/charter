@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import useLocalStorage from "use-local-storage";
-import hasRepeatingChar from '../../utils/has_repeating_char';
+import hasRepeatingChar from '../../utils/has_repeating_char'
+// import useTimer from '../../hooks/useTimer'
 import Timer from './Timer';
-import Keyboard from './Keyboard';
+import Keyboard from './Keyboard.tsx';
 import ResultsModal from './ResultsModal';
 import Button from '@mui/material/Button'
 import { Typography } from '@mui/material'
@@ -23,8 +24,6 @@ const initWordleBoard = () => {
 let charClass = {}
 
 function Wordle() {
-  const word = useRef()
-  const timerRef = useRef(0)
   const [results, setResults] = useLocalStorage('wordle', [])
   const [board, setBoard] = useState(initWordleBoard())
   const [currentLine, setCurrentLine] = useState(0)
@@ -33,6 +32,10 @@ function Wordle() {
   const [success, setSuccess] = useState(false)
   const [timeElapsed, setTimeElapsed] = useState(0)
   const [mode, setMode] = useState('Hard')
+  // let [startTimer, elapsedTime] = useTimer()
+
+  const word = useRef()
+  const timerRef = useRef(0)
 
   const getCurrentWord = () => {
     while(true) {
@@ -51,6 +54,7 @@ function Wordle() {
     setGameOver(false)
     setSuccess(false)
     setTimeElapsed(0)
+    // startTimer = true
     charClass = {}
     if (!results) setResults([])
   }
@@ -93,6 +97,7 @@ function Wordle() {
   const doGameOver = (solved, guess, line) => {
     setGameOver(true)
     setSuccess(solved)
+    // startTimer = false
     setResults([...results, 
       { word: word.current, guess, time: timeElapsed, date: Date.now(),
         line: line + 1, success: solved }])
@@ -129,11 +134,11 @@ function Wordle() {
       doGameOver(false, guess, currentLine)
     }
   }
-
+ 
   return (
     <>
       <Typography sx={{ mt: 3, mb: 1}} variant='h3'>Wordle</Typography>
-      <Timer elapsedtime={timeElapsed} />
+      <Timer elapsedTime={timeElapsed} />
       {results && results.length && <ResultsModal results={results} />}
       <div style={{ marginLeft: '8px', fontSize: '16px' }}>Mode: {mode}
           <Button

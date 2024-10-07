@@ -2,10 +2,10 @@ import { Typography } from "@mui/material"
 import fmtMSS from "../../utils/fmtmss"
 
 
-const Timer = ({ elapsedtime }) => {
-    return (
-      <Typography variant='h5'>Elapsed Time: {fmtMSS(elapsedtime)}</Typography>
-    )
+const Timer = ({ elapsedTime }) => {
+  return (
+    <Typography variant='h5'>Elapsed Time: {fmtMSS(elapsedTime)}</Typography>
+  )
   }
 
 export default Timer

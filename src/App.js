@@ -58,6 +58,8 @@ import ClickBoxes from './components/ClickBoxes'
 import SelectableGrid from './components/SelectableGrid'
 import SwapListItems from './components/SwapListItems'
 import PostsById from './components/PostsById'
+import PhoneNumberInput from './components/PhoneNumberInput'
+import MastersPlayers from './components/MastersPlayers.tsx'
 
 
 
@@ -67,6 +69,8 @@ function App() {
     <>
       
       <Typography variant="h3" sx={{ mb: 2 }}>My React/Redux/Redux-Saga/MUI Sandbox</Typography> 
+      <MastersPlayers />
+      <PhoneNumberInput />     
       <PostsById />
       <SwapListItems />
       <SelectableGrid />
@@ -80,7 +84,7 @@ function App() {
       <Login />
       <Travel />
       <DelayText />
-      <Countries />
+      {/* <Countries /> */}
       <Formexample />
       <Calls />
       <Names />

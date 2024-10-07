@@ -63,7 +63,7 @@ const DelayText = () => {
         <div style={{ fontSize: '22px', margin: '10px 10px 10px 10px' }}>
           Or, just enter some text to see delay in action:
         </div>
-        <textarea style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '18px' }} 
+        <textarea style={{ fontFamily: 'sans-serif', fontSize: '18px' }} 
            rows='5' cols='60' value={text}
            onChange={(e) => setText(e.target.value) } />
       <button style={{ fontSize: '22px', marginLeft: '10px' }}
